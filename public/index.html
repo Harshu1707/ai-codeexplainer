@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Code Explainer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <h1>AI Code Explainer</h1>
+        <p>
+          Paste any code and get a beginner-friendly, animated, step-by-step explanation powered by Gemini.
+        </p>
+      </header>
+
+      <section class="panel input-panel">
+        <div class="field-grid">
+          <label>
+            Language
+            <input id="language" placeholder="e.g. JavaScript, Python" />
+          </label>
+          <label>
+            Audience
+            <input id="audience" placeholder="e.g. 10-year-old student" />
+          </label>
+        </div>
+
+        <label>
+          Code to explain
+          <textarea id="code" rows="12" placeholder="Paste your code here..."></textarea>
+        </label>
+
+        <button id="explainBtn">Explain Step-by-Step</button>
+        <p id="status" class="status"></p>
+      </section>
+
+      <section class="panel output-panel hidden" id="outputPanel">
+        <h2 id="title"></h2>
+        <p id="summary" class="summary"></p>
+
+        <div id="steps" class="steps"></div>
+
+        <h3>Final Takeaway</h3>
+        <p id="takeaway"></p>
+
+        <h3>Glossary</h3>
+        <ul id="glossary" class="glossary"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
