@@ -1,44 +1,50 @@
-# AI Code Explainer (Python + Gemini + Animated Step-by-Step UI)
+# AI Code Explainer (Gemini + Animated Step-by-Step UI)
 
-This project is a beginner-first **AI code explainer** written in **Python**.
+This project is a beginner-first **AI code explainer**.
 
-It uses the **Gemini API** to turn source code into an easy, structured explanation for people who do not know programming.
+It uses the **Gemini API** to convert raw source code into an easy, structured explanation that includes:
+- Clear summary
+- Step-by-step breakdown in execution order
+- “Why this matters” for each step
+- Real-world analogies
+- Small glossary for non-technical readers
+
+The UI is animated so people with zero coding background can follow each step progressively.
+
+---
 
 ## Features
 
-- Python backend with Flask (`/api/explain`)
-- Gemini-powered structured JSON explanation output
-- Animated frontend (typing effect + staggered step reveal)
-- Beginner-friendly wording, analogies, and glossary
+- ✨ Gemini-powered explanations (`/api/explain`)
+- 🎬 Animated UI (typing effect + staggered reveal cards + floating gradient background)
+- 🧠 Beginner-friendly explanation format
+- 🔒 API key stays on server side (client calls only your local backend)
+
+---
 
 ## Tech Stack
 
-- Python + Flask
+- Node.js + Express
 - Vanilla HTML/CSS/JS frontend
 - Gemini Generative Language API
 
+---
+
 ## Setup
 
-1. Create virtual environment and activate it:
+1. Install dependencies:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+npm install
 ```
 
-2. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-3. Configure environment variables:
+2. Create environment file:
 
 ```bash
 cp .env.example .env
 ```
 
-Then edit `.env`:
+3. Put your Gemini key in `.env`:
 
 ```env
 GEMINI_API_KEY=your_real_key
@@ -46,19 +52,29 @@ GEMINI_MODEL=gemini-2.0-flash
 PORT=3000
 ```
 
-4. Run app:
+4. Start app:
 
 ```bash
-python app.py
+npm start
 ```
 
 5. Open:
 
 - http://localhost:3000
 
+---
+
 ## How it works
 
-1. Paste code and click **Explain Step-by-Step**.
-2. Frontend sends code to `POST /api/explain`.
-3. Flask backend prompts Gemini for strict JSON.
-4. Frontend renders animated beginner-friendly steps.
+1. User pastes code and optional language/audience details.
+2. Frontend sends POST request to `/api/explain`.
+3. Backend builds a strict JSON prompt for Gemini.
+4. Gemini returns structured explanation JSON.
+5. Frontend animates title, summary, and step cards for easy comprehension.
+
+---
+
+## Notes
+
+- If explanation fails, ensure your API key is valid.
+- You can switch models using `GEMINI_MODEL` in `.env`.
